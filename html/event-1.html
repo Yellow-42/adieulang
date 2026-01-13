@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Goodbye to Language - Event 1</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&family=Noto+Serif:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/event-detail.css" />
+</head>
+<body>
+  <div id="page-top"></div>
+
+  <!-- 1. Same nav as Archive page -->
+  <header class="site-header">
+    <div class="site-brand">
+      <a href="/#top">
+        Goodbye to Language
+        
+      </a>
+    </div>
+
+    <div class="site-header-right">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/">
+          Home
+          
+        </a>
+        <a href="/html/archive.html">
+          Archive
+          
+        </a>
+        <a href="/html/about.html">
+          Persona
+          
+        </a>
+      </nav>
+
+                  <div class="lang-switch" aria-label="Language selector" role="group">
+        <span class="lang-switch-handle">
+          <a href="/zh/event-1.html">中文</a>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <a href="/html/event-1.html" class="active">English</a>
+        </span>
+      </div>
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      Menu
+      
+    </button>
+  </header>
+
+  <main>
+    <!-- 2. Intro section with gradient -->
+    <section class="event-hero">
+      <div class="event-hero-inner">
+        <!-- 2.1 Back to Archive -->
+        <a href="/html/archive.html" class="back-link">
+          &lt; Back to Archive
+          
+        </a>
+
+        <div class="event-hero-content">
+          <div class="event-hero-text">
+            <!-- 2.2 Title + description -->
+            <h1>
+              Event 1
+              
+            </h1>
+            <p>
+              
+                Description paragraph for this screening program. Briefly introduce the focus,
+                participating filmmakers, venue, and the thread connecting the selected films.
+              
+              
+            </p>
+          </div>
+
+          <!-- 2.2 Image on the right -->
+          <div class="event-hero-image">
+            <img src="../image/landing.png" alt="Event 1 hero image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Independent introduction section -->
+    <section class="event-intro">
+      <div class="event-intro-inner">
+        <p>
+          
+            General description paragraph expanding on the context of the event: how it was conceived,
+            why these works were brought together, and what kinds of conversations or questions the
+            program hopes to open for the audience.
+          
+          
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. Main body with carousel -->
+    <section class="event-body">
+      <div class="event-body-inner">
+        <!-- Left: film text (static position, content changes) -->
+        <div class="film-info">
+          <h2 id="film-title"></h2>
+          <p id="film-meta" class="film-meta"></p>
+          <br>
+          <p id="film-cast" class="film-cast"></p>
+        </div>
+
+        <!-- Right: carousel + description -->
+        <div class="film-visual">
+        <div class="carousel-window">
+            <button class="carousel-arrow left" aria-label="Previous film">&#8249;</button>
+
+            <div class="carousel-track">
+            <div class="carousel-slide">
+                <img src="../image/landing.png" alt="Film 1 still">
+            </div>
+            <div class="carousel-slide">
+                <img src="../image/landing.png" alt="Film 2 still">
+            </div>
+            <div class="carousel-slide">
+                <img src="../image/landing.png" alt="Film 3 still">
+            </div>
+            </div>
+
+            <button class="carousel-arrow right" aria-label="Next film">&#8250;</button>
+        </div>
+
+        <div class="carousel-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+        </div>
+
+        <p id="film-description" class="film-description"></p>
+        </div>
+
+
+          <!-- 4.1 / 4.3 Film description (aligned with image, text fades) -->
+          <p id="film-description" class="film-description"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Contact (same as Archive) -->
+    <section class="archive-contact">
+      <div class="archive-contact-inner">
+        <div class="contact-divider"></div>
+        <p>
+          For any research or screening-related request, you can contact us at:
+          
+        </p>
+        <div class="contact-pill">darwin.yip.42@gmail.com</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 5. Footer (same as Archive) -->
+  <footer id="footer">
+    <span>
+      Copyright © 2026 adieulang.com v1.0, All rights reserved
+      
+    </span>
+  </footer>
+
+  <!-- Back to top -->
+  <a id="to-top" href="#page-top" aria-label="Back to top"></a>
+
+  <script>
+    // Back-to-top visibility
+    const toTop = document.getElementById('to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 220) {
+        toTop.classList.add('show');
+      } else {
+        toTop.classList.remove('show');
+      }
+    });
+
+    // Smooth scroll anchors
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const targetId = link.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    // 4.2 / 4.3 Carousel logic
+    const films = [
+      {
+        title: "Examen d'entrée INSAS",
+        meta: "Belgium, 1967 / 8mm / Black & White / 4 × 2 min",
+        cast: "Cast: Example Name A, Example Name B",
+        description: "Film 1 description paragraph.Film 1 description paragraph.Film 1 description paragraph.Film 1 description paragraph."
+      },
+      {
+        title: "Film 2 Title",
+        meta: "Country, Year / Format / Details",
+        cast: "Cast: Example Name C, Example Name D",
+        description: "Film 2 description paragraph."
+      },
+      {
+        title: "Film 3 Title",
+        meta: "Country, Year / Format / Details",
+        cast: "Cast: Example Name E, Example Name F",
+        description: "Film 3 description paragraph."
+      }
+    ];
+
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    const leftArrow = document.querySelector('.carousel-arrow.left');
+    const rightArrow = document.querySelector('.carousel-arrow.right');
+
+    const filmTitleEl = document.getElementById('film-title');
+    const filmMetaEl = document.getElementById('film-meta');
+    const filmCastEl = document.getElementById('film-cast');
+    const filmDescEl = document.getElementById('film-description');
+
+    let currentIndex = 0;
+
+    function updateText(index) {
+      // fade out
+      [filmTitleEl, filmMetaEl, filmCastEl, filmDescEl].forEach(el => {
+        el.classList.remove('fade-in');
+        el.classList.add('fade-out');
+      });
+
+      setTimeout(() => {
+        const film = films[index];
+        filmTitleEl.textContent = film.title;
+        filmMetaEl.textContent = film.meta;
+        filmCastEl.textContent = film.cast;
+        filmDescEl.textContent = film.description;
+
+        // fade in
+        [filmTitleEl, filmMetaEl, filmCastEl, filmDescEl].forEach(el => {
+          el.classList.remove('fade-out');
+          el.classList.add('fade-in');
+        });
+      }, 200); // brief overlap before new text
+    }
+
+    function updateCarousel(index) {
+      // move images horizontally
+      const offset = -index * 100;
+      track.style.transform = `translateX(${offset}%)`;
+
+      // update dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+
+      // update text
+      updateText(index);
+    }
+
+    function goTo(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      currentIndex = index;
+      updateCarousel(currentIndex);
+    }
+
+    leftArrow.addEventListener('click', () => goTo(currentIndex - 1));
+    rightArrow.addEventListener('click', () => goTo(currentIndex + 1));
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = Number(dot.dataset.index);
+        goTo(idx);
+      });
+    });
+
+    // init
+    updateCarousel(0);
+  </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Goodbye to Language - Persona</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&family=Noto+Serif:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/about.css" />
+</head>
+<body>
+  <div id="page-top"></div>
+
+  <header class="site-header">
+    <div class="site-brand">
+      <a href="/#top">
+        Goodbye to Language
+        
+      </a>
+    </div>
+
+    <div class="site-header-right">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/">
+          Home
+          
+        </a>
+        <a href="/html/archive.html">
+          Archive
+          
+        </a>
+        <a href="/html/about.html">
+          Persona
+          
+        </a>
+      </nav>
+
+                  <div class="lang-switch" aria-label="Language selector" role="group">
+        <span class="lang-switch-handle">
+          <a href="/zh/about.html">中文</a>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <a href="/html/about.html" class="active">English</a>
+        </span>
+      </div>
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      Menu
+      
+    </button>
+  </header>
+
+  <main>
+    <!-- Intro band (same structure style as archive hero) -->
+    <section class="about-hero">
+      <div class="about-hero-inner">
+        <h1>
+          Persona
+          
+        </h1>
+        <p>
+          Goodbye to Language takes its name from Jean-Luc Godard's film and begins as a private vow:
+          to push my world beyond the borders of words. This site is a small vessel for poems, photographs,
+          diaries, and personal records, a place where fragments can drift, settle, and speak in their
+          quiet tempo. It is not a manifesto or a museum, but a patient notebook, open to the accidental,
+          the unfinished, and the tender weight of memory. Here I collect the traces of days, the light
+          on walls, the pauses between scenes, and the small truths that refuse translation yet insist.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main article -->
+    <section class="about-body">
+      <div class="about-inner">
+        <article class="about-article">
+          <h2>
+            Goodbye to Language
+            
+          </h2>
+          <p>
+            To borrow Godard's title is to admit that speech is never enough. I move through days with a
+            surplus of feeling and image that language cannot carry. Photography, poems, and diary entries
+            become another grammar, one that keeps the grain of time: dust on a window, a street after rain,
+            the hush of a room at night. In this sense, Goodbye to Language is not an escape from language,
+            but a widening of it, a listening for the other ways a life reveals itself.
+          </p>
+          <p>
+            The website will gather personal recordings of many kinds: short poems, long diaristic notes,
+            sequences of photographs, letters to no one, and fragments that do not yet know what they are.
+            Some posts will be dated like postcards; others will float without context. The archive will be
+            tender and imperfect, a slow collection of attention rather than a finished story. I want it to
+            feel like a desk with paper scattered across it, a place where thoughts can stay unfinished and
+            still be true.
+          </p>
+          <p>
+            If words are bridges, I keep walking along the water instead, tracing reflections and reeds.
+            The work here is to keep company with what is small: a breath, a shadow, a sentence that breaks.
+            By tending to fragments, I hope to expand my personal world and offer a quiet place for yours
+            to rest beside it.
+          </p>
+
+          <figure class="about-figure">
+            <img src="../image/adieulang.jpg" alt="Goodbye to Language" class="about-image" />
+            <figcaption>
+              E la nave va, And the Ship Sails On.
+              
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact section: SAME as archive page (style + structure) -->
+    <section class="archive-contact">
+      <div class="archive-contact-inner">
+        <div class="contact-divider"></div>
+        <p>
+          
+            For any questions, collaborations or screening inquiries related to Goodbye to Language, please write to:
+          
+          
+        </p>
+        <div class="contact-pill">darwin.yip.42@gmail.com</div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <span>
+      Copyright © 2026 adieulang.com v1.0, All rights reserved
+      
+    </span>
+  </footer>
+
+  <a id="to-top" href="#page-top" aria-label="Back to top"></a>
+
+  <script>
+    // Back to top visibility
+    const toTop = document.getElementById('to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 220) {
+        toTop.classList.add('show');
+      } else {
+        toTop.classList.remove('show');
+      }
+    });
+
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const targetId = link.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+  </script>
+</body>
+</html>

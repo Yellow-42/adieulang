@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>再見語言 - 关于</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&family=Noto+Serif:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/about.css" />
+</head>
+<body>
+  <div id="page-top"></div>
+
+  <header class="site-header">
+    <div class="site-brand">
+      <a href="/zh/index.html#top">
+        
+        再見語言
+      </a>
+    </div>
+
+    <div class="site-header-right">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/zh/index.html">
+          
+          首页
+        </a>
+        <a href="/zh/archive.html">
+          
+          詩歌言葉
+        </a>
+        <a href="/zh/about.html">
+          
+          关于
+        </a>
+      </nav>
+
+                        <div class="lang-switch" aria-label="Language selector" role="group">
+        <span class="lang-switch-handle">
+          <a href="/zh/about.html" class="active">中文</a>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <a href="/html/about.html">English</a>
+        </span>
+      </div>
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      
+      菜单
+    </button>
+  </header>
+
+  <main>
+    <!-- Intro band (same structure style as archive hero) -->
+    <section class="about-hero">
+      <div class="about-hero-inner">
+        <h1>
+          
+          关于
+        </h1>
+        <p>
+          《再見語言》取名自让-吕克·戈达尔的同名电影，起初是一种私人的誓愿：把我的世界推向语言之外。
+          这个网站是一艘小小的容器，承载诗、摄影、日记与各种个人记录，让碎片漂浮、沉淀，并以自己的安静节奏说话。
+          它不是宣言，也不是博物馆，而是一本耐心的笔记本，向偶然、未完成与记忆的柔软重量敞开。
+          在这里，我收集日子的痕迹、墙上的光、场景之间的停顿，以及那些拒绝翻译却仍然坚持的微小真相。
+        </p>
+      </div>
+    </section>
+
+    <!-- Main article -->
+    <section class="about-body">
+      <div class="about-inner">
+        <article class="about-article">
+          <h2>
+            
+            再見語言
+          </h2>
+          <p>
+            借用戈达尔的标题，是承认言语从来不够。我在日子里行走，心里有过剩的感受与影像，语言承载不起。
+            摄影、诗与日记成了另一种语法，保留时间的纹理：窗上的尘、雨后的街、夜里房间的寂静。
+            从这个意义上说，《再見語言》并非逃离语言，而是将它扩展，去聆听生命以其他方式显现。
+          </p>
+          <p>
+            这个网站将收录各种个人记录：短诗、较长的日记式笔记、照片的序列、写给无人之人的信，以及尚未知道自己是什么的碎片。
+            有些条目像明信片一样标注日期，有些则漂浮在语境之外。詩歌言葉将是温柔而不完美的，是一份缓慢的注意力积累，而不是完成的故事。
+            我希望它像一张铺满纸张的桌面，让想法可以未完成也仍然真实。
+          </p>
+          <p>
+            如果语言是一座桥，我宁愿沿着河岸行走，描摹倒影与芦苇。这里的工作是与细小之物为伴：一口气息、一抹影子、一句断裂的句子。
+            照料这些碎片，我希望扩展自己的世界，也为你的世界提供一处安静的停靠。
+          </p>
+
+          <figure class="about-figure">
+            <img src="../image/adieulang.jpg" alt="再見語言" class="about-image" />
+            <figcaption>
+              
+              《船继续航行》
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact section: SAME as archive page (style + structure) -->
+    <section class="archive-contact">
+      <div class="archive-contact-inner">
+        <div class="contact-divider"></div>
+        <p>
+          
+          
+            如有与《再見語言》相关的提问、合作或放映咨询，请来信：
+          
+        </p>
+        <div class="contact-pill">darwin.yip.42@gmail.com</div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <span>
+      
+      版权所有 © 2026 adieulang.com v1.0，保留所有权利
+    </span>
+  </footer>
+
+  <a id="to-top" href="#page-top" aria-label="回到顶部"></a>
+
+  <script>
+    // Back to top visibility
+    const toTop = document.getElementById('to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 220) {
+        toTop.classList.add('show');
+      } else {
+        toTop.classList.remove('show');
+      }
+    });
+
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const targetId = link.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+  </script>
+</body>
+</html>

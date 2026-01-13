@@ -1,0 +1,433 @@
+:root {
+  --bg: #fff7f5;
+  --primary: #4A77B1;
+  --muted: #5C6975;
+  --line: #e0d8d5;
+  --max-width: 1080px;
+}
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Noto Sans SC", "Inter", -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+  background-color: var(--bg);
+  color: #333333;
+}
+
+html[lang="zh-CN"] body {
+  font-family: "Noto Serif SC", "Noto Serif", "Times New Roman", serif;
+  font-weight: 300;
+}
+
+
+/* =========================
+   Top Navigation (keep current)
+   ========================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px;
+  background-color: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid rgba(34, 34, 34, 0.06);
+}
+
+.site-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.site-brand a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-left: 12px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+  margin-right: 20px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--muted);
+  padding: 4px 0;
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover {
+  color: var(--primary);
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: #222222;
+  font-family: "Noto Serif", "Noto Serif SC", "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.lang-switch-handle {
+  text-align: right;
+  font-size: 0.95em;
+}
+
+.lang-switch-handle a {
+  background: none;
+  border: none;
+  padding: 0 0 4px;
+  font: inherit;
+  color: inherit !important;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  text-decoration: none !important;
+}
+
+.lang-switch-handle a:visited,
+.lang-switch-handle a:hover,
+.lang-switch-handle a:active {
+  color: inherit !important;
+}
+
+.lang-switch-handle a.active {
+  color: #111111 !important;
+  border-bottom-color: #f2d400 !important;
+}
+
+.lang-switch-handle a:focus-visible {
+  outline: 2px solid #f2d400;
+  outline-offset: 2px;
+}
+
+.lang-sep {
+  color: currentColor;
+  opacity: 0.6;
+}
+.nav-toggle {
+  display: none;
+  border: 1px solid var(--primary);
+  background: transparent;
+  padding: 4px 8px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+/* =========================
+   Layout
+   ========================= */
+
+main {
+  padding-top: 60px; /* room for fixed nav */
+}
+
+/* 2. Intro hero (same spirit as About) */
+
+.archive-hero {
+  background: linear-gradient(270deg, #4a77b1, #6d9fd8);
+  color: #ffffff;
+  padding: 80px 0 80px;
+}
+
+.archive-hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.archive-hero h1 {
+  font-family: "Noto Sans SC", "Inter", sans-serif;
+  font-size: 40px;          /* bigger title */
+  font-weight: 300;         /* light, elegant */
+  letter-spacing: 0.03em;   /* subtle spacing like reference */
+  margin-bottom: 14px;
+}
+
+.archive-hero p {
+  font-family: "Noto Sans SC", "Inter", sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+html[lang="zh-CN"] .archive-hero h1,
+html[lang="zh-CN"] .archive-hero p {
+  font-family: "Noto Serif SC", "Noto Serif", "Times New Roman", serif;
+  font-weight: 300;
+}
+
+/* 3. Timeline */
+
+.archive-body {
+  padding: 52px 0 40px;
+  background-color: var(--bg);
+}
+
+.archive-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* outer timeline container */
+
+
+/* year row */
+
+.timeline-year {
+  margin-bottom: 40px;
+}
+
+.timeline-year-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* dot + year text */
+
+.timeline-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background-color: #999999;
+  margin-right: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-year-text {
+  font-size: 24px;
+  font-weight: 500;
+  color: #666666;
+}
+
+/* events container under each year */
+
+.timeline-events {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* each event */
+
+.timeline-event {
+  display: grid;
+  grid-template-columns: minmax(260px, 420px) minmax(0, 1fr);
+  column-gap: 32px;
+  align-items: flex-start;
+}
+
+/* 16:9 image wrapper */
+
+.event-image-link {
+  display: block;
+  text-decoration: none;
+}
+
+.event-image {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;       /* 16:9 ratio */
+  background-color: #e0e0e0; /* placeholder background */
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.event-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* text */
+
+.event-text h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #333333;
+}
+
+.event-text p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+/* 4. Contact info */
+
+.archive-contact {
+  padding: 52px 0 40px;
+  background-color: #f5fafc;
+}
+
+.archive-contact-inner {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.contact-divider {
+  width: 72px;
+  height: 2px;
+  background-color: #d0d8e0;
+  margin: 0 auto 18px;
+}
+
+.archive-contact p {
+  font-size: 13px;
+  color: #7a828c;
+  margin-bottom: 16px;
+}
+
+/* pill-style email, not clickable */
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 26px;
+  border-radius: 999px;
+  border: 1px solid #b6c5d4;
+  font-size: 12px;
+  color: #4a77b1;
+  background-color: #ffffff;
+}
+
+/* 5. Footer */
+
+#footer {
+  border-top: 1px solid #e6eaee;
+  padding: 20px 0 22px;
+  background-color: #f6f8fa;
+  text-align: center;
+  font-size: 12px;
+  color: #9aa1aa;
+}
+
+/* Back to top */
+
+#to-top {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #ffffff, #f3f7fa);
+  box-shadow: 0 6px 18px rgba(40, 60, 80, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all 0.25s ease;
+}
+
+#to-top.show {
+  opacity: 1;
+  transform: none;
+}
+
+#to-top::after {
+  content: "↑";
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 720px) {
+  .site-header {
+    padding: 10px 14px;
+  }
+
+  .lang-switch {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 52px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 18px 14px;
+    background-color: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid rgba(34, 34, 34, 0.06);
+    display: none;
+  }
+
+  .site-nav.is-open {
+    display: flex;
+    align-items: center;
+  }
+
+  .archive-hero-inner,
+  .archive-inner {
+    padding: 0 18px;
+  }
+
+  .timeline {
+    padding-left: 64px;
+  }
+
+  .timeline::before {
+    left: 24px;
+  }
+
+  .timeline-event {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+}

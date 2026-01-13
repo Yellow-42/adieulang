@@ -1,219 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AdieuLang</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Goodbye to Language</title>
 
-      body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
-        color: #0f172a;
-        background: #0b1120;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
+  <!-- Fonts (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&family=Noto+Serif:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-      .nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 64px;
-        backdrop-filter: blur(18px);
-        background: linear-gradient(
-          to bottom,
-          rgba(15, 23, 42, 0.96),
-          rgba(15, 23, 42, 0.8),
-          transparent
-        );
-        border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 50;
-      }
+  <!-- Main stylesheet (already contains .hero-full / .hero-video rules) -->
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
 
-      .nav-title {
-        font-size: 1.2rem;
-        letter-spacing: 0.25em;
-        text-transform: uppercase;
-        color: #e5e7eb;
-        font-weight: 600;
-      }
+<body>
+  <!-- Top navigation overlaying the hero -->
+  <header class="site-header">
+    <div class="site-brand">
+      <a href="#top">
+        <span class="site-title-text">
+          Goodbye to Language
+          
+        </span>
+      </a>
+    </div>
 
-      main {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-top: 96px; /* space for nav */
-        padding-bottom: 48px;
-        padding-left: 24px;
-        padding-right: 24px;
-      }
+    <div class="site-header-right">
+      <nav class="site-nav" aria-label="Main navigation">
+         <a href="/">
+           Home
+           
+         </a>
+         <a href="/html/archive.html">
+           Archive
+           
+         </a>
+         <a href="/html/about.html">
+           Persona
+           
+         </a>
+       </nav>
 
-      .hero {
-        max-width: 1120px;
-        width: 100%;
-        display: grid;
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-        gap: 3rem;
-        align-items: center;
-      }
-
-      .hero-copy h1 {
-        font-size: clamp(2.8rem, 4vw, 3.6rem);
-        line-height: 1.1;
-        color: #f9fafb;
-        margin-bottom: 1rem;
-      }
-
-      .hero-copy p {
-        color: #9ca3af;
-        font-size: 1rem;
-        max-width: 30rem;
-      }
-
-      .hero-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        border-radius: 999px;
-        padding: 0.25rem 0.8rem 0.25rem 0.25rem;
-        background: rgba(15, 23, 42, 0.9);
-        border: 1px solid rgba(148, 163, 184, 0.4);
-        color: #e5e7eb;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        margin-bottom: 0.9rem;
-      }
-
-      .hero-tag-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 999px;
-        background: radial-gradient(circle at 30% 30%, #a855f7, #4f46e5);
-        box-shadow: 0 0 22px rgba(129, 140, 248, 0.9);
-      }
-
-      .hero-image-wrapper {
-        position: relative;
-        border-radius: 24px;
-        overflow: hidden;
-        border: 1px solid rgba(148, 163, 184, 0.35);
-        background: radial-gradient(circle at 0% 0%, #22d3ee15 0, transparent 60%),
-          radial-gradient(circle at 100% 100%, #a855f715 0, transparent 55%),
-          #020617;
-        box-shadow:
-          0 22px 60px rgba(15, 23, 42, 0.95),
-          0 0 0 1px rgba(15, 23, 42, 0.8),
-          0 0 40px rgba(59, 130, 246, 0.25);
-      }
-
-      .hero-image {
-        width: 100%;
-        display: block;
-        object-fit: cover;
-        min-height: 260px;
-      }
-
-      .hero-glow {
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at 10% 0%, rgba(59, 130, 246, 0.3), transparent 55%),
-          radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.35), transparent 55%);
-        mix-blend-mode: screen;
-        pointer-events: none;
-      }
-
-      .hero-caption {
-        position: absolute;
-        left: 1.5rem;
-        bottom: 1.5rem;
-        padding: 0.5rem 0.9rem;
-        border-radius: 999px;
-        background: rgba(15, 23, 42, 0.92);
-        color: #e5e7eb;
-        font-size: 0.75rem;
-        border: 1px solid rgba(148, 163, 184, 0.55);
-        backdrop-filter: blur(18px);
-      }
-
-      @media (max-width: 900px) {
-        .hero {
-          grid-template-columns: minmax(0, 1fr);
-        }
-
-        .hero-image-wrapper {
-          order: -1;
-        }
-
-        main {
-          padding-top: 88px;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .nav {
-          height: 56px;
-        }
-
-        .nav-title {
-          font-size: 1rem;
-          letter-spacing: 0.18em;
-        }
-
-        .hero-copy h1 {
-          font-size: 2.1rem;
-        }
-
-        .hero-copy p {
-          font-size: 0.95rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="nav">
-      <div class="nav-title">AdieuLang</div>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="hero-copy">
-          <div class="hero-tag">
-            <span class="hero-tag-dot"></span>
-            <span>Experimental Language Runtime</span>
-          </div>
-          <h1>Say goodbye to boilerplate. Say hello to AdieuLang.</h1>
-          <p>
-            A clean, minimal landing page shell for your language project. You can
-            replace this text and image with your own content as AdieuLang evolves.
-          </p>
+        <div class="lang-switch" aria-label="Language selector" role="group">
+            <span class="lang-switch-handle">
+            <a href="/zh/index.html">中文</a>
+            <span class="lang-sep" aria-hidden="true">/</span>
+            <a href="/" class="active">English</a>
+            </span>
         </div>
+    </div>
 
-        <div class="hero-image-wrapper">
-          <!-- Static landing image -->
-          <img
-            class="hero-image"
-            src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1600"
-            alt="Abstract code and gradient illustration for AdieuLang"
-          />
-          <div class="hero-glow"></div>
-          <div class="hero-caption">Static preview · AdieuLang workspace</div>
-        </div>
-      </section>
-    </main>
-  </body>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      Menu
+      
+    </button>
+  </header>
+
+  <!-- Full-screen landing hero with video background -->
+  <section class="hero-full" id="top">
+    <video
+      id="heroVideo"
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto">
+      <source src="video/video_index.mp4" type="video/mp4" />
+      <!-- Optional WebM:
+      <source src="video/landing.webm" type="video/webm" />
+      -->
+      <!-- Fallback image handled by CSS background in .hero-full -->
+    </video>
+
+    <!-- Dark overlay gradient -->
+    <div class="hero-overlay"></div>
+
+    <!-- Hero text -->
+    <div class="hero-content">
+      <h1 class="hero-title">
+        CINEMA &amp; PROJECTS
+        
+      </h1>
+      <p class="hero-subtitle">
+        A small boat for screenings, film writing, and quiet images.
+        
+      </p>
+    </div>
+  </section>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    // Force hero video autoplay, with user-interaction fallback
+    const heroVideo = document.getElementById('heroVideo');
+    function tryPlayHeroVideo() {
+      if (!heroVideo) return;
+      heroVideo.muted = true;
+      heroVideo.setAttribute('muted', '');
+      heroVideo.setAttribute('playsinline', '');
+      const playPromise = heroVideo.play();
+      if (playPromise && playPromise.catch) {
+        playPromise.catch(() => {
+          const resume = () => {
+            heroVideo.play().catch(() => {});
+            window.removeEventListener('click', resume);
+            window.removeEventListener('touchstart', resume);
+          };
+          window.addEventListener('click', resume, { once: true });
+          window.addEventListener('touchstart', resume, { once: true });
+        });
+      }
+    }
+    if (heroVideo) {
+      heroVideo.addEventListener('canplay', tryPlayHeroVideo, { once: true });
+      window.addEventListener('load', tryPlayHeroVideo);
+    }
+  </script>
+</body>
 </html>
-
-

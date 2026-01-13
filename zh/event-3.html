@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>再見語言 - 给我讲一个关于昆德拉的故事</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&family=Noto+Serif:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/event-detail.css" />
+</head>
+<body>
+  <div id="page-top"></div>
+
+  <!-- 1. Same nav as Archive page -->
+  <header class="site-header">
+    <div class="site-brand">
+      <a href="/zh/index.html#top">
+        
+        再見語言
+      </a>
+    </div>
+
+    <div class="site-header-right">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/zh/index.html">
+          
+          首页
+        </a>
+        <a href="/zh/archive.html">
+          
+          詩歌言葉
+        </a>
+        <a href="/zh/about.html">
+          
+          关于
+        </a>
+      </nav>
+
+                        <div class="lang-switch" aria-label="Language selector" role="group">
+        <span class="lang-switch-handle">
+          <a href="/zh/event-3.html" class="active">中文</a>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <a href="/html/event-3.html">English</a>
+        </span>
+      </div>
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      
+      菜单
+    </button>
+  </header>
+
+  <main>
+    <!-- 2. Intro section with gradient -->
+    <section class="event-hero">
+      <div class="event-hero-inner">
+        <!-- 2.1 Back to Archive -->
+        <a href="/zh/archive.html" class="back-link">
+          
+          &lt; 返回档案
+        </a>
+
+        <div class="event-hero-content">
+          <div class="event-hero-text">
+            <!-- 2.2 Title + description -->
+            <h1>
+              
+              给我讲一个关于昆德拉的故事
+            </h1>
+            <p>
+              
+              
+                这些影片触及的主题，是早先在共产主义国家拍片的电影人几乎难以避免审查阻力的问题：
+                例如米洛什·福尔曼的《黑彼得》(1963)与《金发女郎的爱情》(1965)中迷失的青年，
+                或薇拉·齐蒂洛娃的《雏菊》(1966)与雅罗米尔·伊雷什的《瓦莱丽与她的奇迹一周》(1970)里被卷入超现实漩涡的人物。
+                这些影片常以黑色荒诞的幽默，反对1950年代的社会主义现实主义电影。
+              
+            </p>
+          </div>
+
+          <!-- 2.2 Image on the right -->
+          <div class="event-hero-image">
+            <img src="../image/Czech-main.JPG" alt="活动 3 主视觉">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Independent introduction section -->
+    <section class="event-intro">
+      <div class="event-intro-inner">
+        <p>
+          
+          
+            新电影时期拍摄的大多数影片为捷克语而非斯洛伐克语。许多导演出自布拉格著名的FAMU，
+            而国营的巴兰多夫制片厂则位于布拉格郊外。杰出的捷克导演包括米洛什·福尔曼（此时期执导《消防员舞会》《黑彼得》《金发女郎的爱情》）、
+            以《雏菊》著称的薇拉·齐蒂洛娃，以及凭《严密监视的列车》（1966）获得奥斯卡最佳外语片的伊日·门泽尔。
+          
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. Main body with carousel -->
+    <section class="event-body">
+      <div class="event-body-inner">
+        <!-- Left: film text (static position, content changes) -->
+        <div class="film-info">
+          <h2 id="film-title"></h2>
+          <p id="film-meta" class="film-meta"></p>
+          <br>
+          <p id="film-cast" class="film-cast"></p>
+        </div>
+
+        <!-- Right: carousel + description -->
+        <div class="film-visual">
+        <div class="carousel-window">
+            <button class="carousel-arrow left" aria-label="Previous film">&#8249;</button>
+
+            <div class="carousel-track">
+            <div class="carousel-slide">
+                <img src="../image/Czech-1.JPG" alt="影片 1 剧照">
+            </div>
+            <div class="carousel-slide">
+                <img src="../image/Czech-2.JPG" alt="影片 2 剧照">
+            </div>
+            <div class="carousel-slide">
+                <img src="../image/Czech-3.JPG" alt="影片 3 剧照">
+            </div>
+            <div class="carousel-slide">
+                <img src="../image/Czech-4.JPG" alt="影片 4 剧照">
+            </div>
+            </div>
+
+            <button class="carousel-arrow right" aria-label="Next film">&#8250;</button>
+        </div>
+
+        <div class="carousel-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+        </div>
+
+        <p id="film-description" class="film-description"></p>
+        </div>
+
+
+          <!-- 4.1 / 4.3 Film description (aligned with image, text fades) -->
+          <p id="film-description" class="film-description"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Contact (same as Archive) -->
+    <section class="archive-contact">
+      <div class="archive-contact-inner">
+        <div class="contact-divider"></div>
+        <p>
+          
+          如有研究或放映相关的需求，请联系：
+        </p>
+        <div class="contact-pill">darwin.yip.42@gmail.com</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 5. Footer (same as Archive) -->
+  <footer id="footer">
+    <span>
+      
+      版权所有 © 2026 adieulang.com v1.0，保留所有权利
+    </span>
+  </footer>
+
+  <!-- Back to top -->
+  <a id="to-top" href="#page-top" aria-label="回到顶部"></a>
+
+  <script>
+    // Back-to-top visibility
+    const toTop = document.getElementById('to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 220) {
+        toTop.classList.add('show');
+      } else {
+        toTop.classList.remove('show');
+      }
+    });
+
+    // Smooth scroll anchors
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const targetId = link.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    // Mobile nav toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    // 4.2 / 4.3 Carousel logic
+    const films = [
+      {
+        title: "Sedmikrásky（雏菊）",
+        meta: "捷克斯洛伐克 / 1966 / 未分级 / 1小时15分",
+        cast: `导演：Vera Chytilová
+          编剧：Vera Chytilová, Pavel Jurácek, Ester Krumbachová
+          演员：Ivana Karbanová, Jitka Cerhová, Marie Cesková
+        `,
+        description: `在意识到世界已被败坏之后，玛丽和玛丽决定自己也要“堕落”。她们戏弄年长男子，
+        享受奢华盛宴，制造各种恶作剧。但这一切究竟指向何处？`
+      },
+      {
+        title: "Ucho（耳朵）",
+        meta: "捷克斯洛伐克 / 1970 / 未分级 / 1小时34分",
+        cast: `导演：Karel Kachyna
+          编剧：Karel Kachyna, Jan Procházka, Ladislav Winkelhöfer
+          演员：Jirina Bohdalová, Radoslav Brzobohatý, Gustav Opocenský
+        `,
+        description: `一次晚间聚会后，一名捷克官员回到家中，确信自己即将遭遇政治清洗，试图进行损害控制，
+        同时还要面对动荡的婚姻。`
+      },
+      {
+        title: "Horí, má panenko（消防员舞会）",
+        meta: "捷克斯洛伐克 / 1967 / 未分级 / 1小时13分",
+        cast: `导演：Milos Forman
+          编剧：Milos Forman, Jaroslav Papousek, Ivan Passer
+          演员：Jan Vostrcil, Josef Sebánek, Josef Valnoha
+        `,
+        description: `一支志愿消防队为前任队长举办晚会，全镇受邀，但一切都不如计划。`
+      },
+      {
+        title: "Diamonds of the Night（夜之钻石）",
+        meta: "捷克斯洛伐克 / 1964 / 未分级 / 1小时7分",
+        cast: `导演：Jan Nemec
+          编剧：Arnost Lustig, Jan Nemec
+          演员：Antonín Kumbera, Ladislav Jánsky, Ilse Bischofova
+        `,
+        description: `两名犹太男孩从运往集中营的列车中逃出。影片超越战争与反纳粹主题，关注人如何维护尊严。`
+      }
+    ];
+
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    const leftArrow = document.querySelector('.carousel-arrow.left');
+    const rightArrow = document.querySelector('.carousel-arrow.right');
+
+    const filmTitleEl = document.getElementById('film-title');
+    const filmMetaEl = document.getElementById('film-meta');
+    const filmCastEl = document.getElementById('film-cast');
+    const filmDescEl = document.getElementById('film-description');
+
+    let currentIndex = 0;
+
+    function updateText(index) {
+      // fade out
+      [filmTitleEl, filmMetaEl, filmCastEl, filmDescEl].forEach(el => {
+        el.classList.remove('fade-in');
+        el.classList.add('fade-out');
+      });
+
+      setTimeout(() => {
+        const film = films[index];
+        filmTitleEl.textContent = film.title;
+        filmMetaEl.textContent = film.meta;
+        filmCastEl.textContent = film.cast;
+        filmDescEl.textContent = film.description;
+
+        // fade in
+        [filmTitleEl, filmMetaEl, filmCastEl, filmDescEl].forEach(el => {
+          el.classList.remove('fade-out');
+          el.classList.add('fade-in');
+        });
+      }, 200); // brief overlap before new text
+    }
+
+    function updateCarousel(index) {
+      // move images horizontally
+      const offset = -index * 100;
+      track.style.transform = `translateX(${offset}%)`;
+
+      // update dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+
+      // update text
+      updateText(index);
+    }
+
+    function goTo(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      currentIndex = index;
+      updateCarousel(currentIndex);
+    }
+
+    leftArrow.addEventListener('click', () => goTo(currentIndex - 1));
+    rightArrow.addEventListener('click', () => goTo(currentIndex + 1));
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const idx = Number(dot.dataset.index);
+        goTo(idx);
+      });
+    });
+
+    // init
+    updateCarousel(0);
+  </script>
+</body>
+</html>

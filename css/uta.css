@@ -1,0 +1,115 @@
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f3f1ea;
+  color: #1b1b18;
+  font-family: "Noto Serif", "Times New Roman", serif;
+}
+
+html[lang="zh-CN"] body {
+  font-family: "Noto Serif SC", "Noto Serif", "Times New Roman", serif;
+}
+
+.uta-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 40px;
+  text-align: center;
+}
+
+.uta-line {
+  margin: 0;
+  font-size: clamp(24px, 4vw, 40px);
+  letter-spacing: 0.02em;
+}
+
+.uta-cards {
+  width: min(1000px, 100%);
+  display: grid;
+  gap: 20px;
+  margin-top: 36px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.uta-card {
+  aspect-ratio: 3 / 4;
+  background: #ffffff;
+  border: 1px solid rgba(27, 27, 24, 0.12);
+  box-shadow: 0 8px 18px rgba(27, 27, 24, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.uta-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.uta-card-title {
+  margin: 0;
+  font-size: clamp(15px, 2vw, 18px);
+  letter-spacing: 0.02em;
+}
+
+.uta-card-body {
+  font-size: clamp(13px, 1.8vw, 16px);
+  line-height: 1.6;
+}
+
+.uta-card-body p {
+  margin: 0;
+}
+
+.uta-card-body p + p {
+  margin-top: 8px;
+}
+
+.uta-card-body a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.uta-card-body ul,
+.uta-card-body ol {
+  margin: 0;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.uta-card-body li + li {
+  margin-top: 6px;
+}
+
+.uta-card-body blockquote {
+  margin: 0;
+  padding-left: 12px;
+  border-left: 2px solid rgba(27, 27, 24, 0.2);
+  text-align: left;
+  font-style: italic;
+}
+
+@media (min-width: 720px) {
+  .uta-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .uta-cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

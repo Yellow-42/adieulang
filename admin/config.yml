@@ -15,3 +15,14 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string", default: "Updates" }
           - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Uta"
+        name: "uta"
+        file: "content/uta.json"
+        fields:
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "markdown" }

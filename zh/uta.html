@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>詩歌言葉</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/archive.css" />
+  <link rel="stylesheet" href="/css/uta.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-brand">
+      <a href="/#top">
+        再見語言
+      </a>
+    </div>
+
+    <div class="site-header-right">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/zh/index.html">
+          首页
+        </a>
+        <a href="/zh/archive.html">
+          影像之書
+        </a>
+        <a href="/zh/uta.html">
+          詩歌言葉
+        </a>
+        <a href="/zh/about.html">
+          关于
+        </a>
+      </nav>
+
+      <div class="lang-switch" aria-label="Language selector" role="group">
+        <span class="lang-switch-handle">
+          <a href="/zh/uta.html" class="active">中文</a>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <a href="/uta.html">English</a>
+        </span>
+      </div>
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      菜单
+    </button>
+  </header>
+
+  <main class="uta-page">
+    <p class="uta-line">詩歌言葉</p>
+    <section class="uta-cards" aria-label="詩歌言葉列表" data-uta-cards></section>
+  </main>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    const cards = document.querySelector('[data-uta-cards]');
+    if (cards) {
+      fetch('/content/uta.json', { cache: 'no-store' })
+        .then(response => response.json())
+        .then(data => {
+          const items = Array.isArray(data.items) ? data.items.slice().reverse() : [];
+          const fragment = document.createDocumentFragment();
+          items.forEach(item => {
+            const card = document.createElement('article');
+            card.className = 'uta-card';
+
+            const content = document.createElement('div');
+            content.className = 'uta-card-content';
+
+            const title = document.createElement('h3');
+            title.className = 'uta-card-title';
+            title.textContent = item.title || '';
+
+            const body = document.createElement('div');
+            body.className = 'uta-card-body';
+            if (window.marked) {
+              body.innerHTML = marked.parse(item.body || '');
+            } else {
+              body.textContent = item.body || '';
+            }
+
+            content.append(title, body);
+            card.append(content);
+            fragment.append(card);
+          });
+
+          cards.replaceChildren(fragment);
+        })
+        .catch(() => {});
+    }
+  </script>
+</body>
+</html>

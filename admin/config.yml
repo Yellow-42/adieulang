@@ -22,7 +22,9 @@ collections:
           - label: "Items"
             name: "items"
             widget: "list"
-            summary: "{{fields.title}}"
+            summary: "{{fields.updated_at}} — {{fields.title}}"
+            add_to_top: true
             fields:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Body", name: "body", widget: "markdown" }
+              - { label: "Updated At", name: "updated_at", widget: "datetime", required: false, default: "{{now}}", format: "YYYY-MM-DD HH:mm" }

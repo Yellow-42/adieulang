@@ -36,9 +36,11 @@ html[lang="zh-CN"] body {
   gap: 20px;
   margin-top: 36px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-items: center;
 }
 
 .uta-card {
+  width: min(360px, 100%);
   aspect-ratio: 3 / 4;
   background: #ffffff;
   border: 1px solid rgba(27, 27, 24, 0.12);
@@ -52,10 +54,10 @@ html[lang="zh-CN"] body {
 .uta-card-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 10px;
-  text-align: center;
+  text-align: left;
 }
 
 .uta-card-title {

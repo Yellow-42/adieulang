@@ -5,6 +5,9 @@ backend:
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
+media_library:
+  name: taggedMedia
+
 collections:
   - name: "site"
     label: "Site Content"
@@ -28,3 +31,20 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Body", name: "body", widget: "markdown" }
               - { label: "Updated At", name: "updated_at", widget: "datetime", required: false, default: "{{now}}", format: "YYYY-MM-DD HH:mm" }
+  - name: "media_tags"
+    label: "Media Tags (System)"
+    file: "content/media-tags.json"
+    fields:
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        default: []
+      - label: "Items"
+        name: "items"
+        widget: "list"
+        fields:
+          - { label: "Path", name: "path", widget: "string" }
+          - label: "Tags"
+            name: "tags"
+            widget: "list"
+            default: []

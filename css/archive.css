@@ -59,14 +59,25 @@ html[lang="zh-CN"] body {
   gap: 0;
 }
 
+html[lang="en"] .site-header {
+  font-family: "Palanquin", "Helvetica", "Arial", sans-serif;
+}
+
 .site-brand a {
   text-decoration: none;
   color: #333333;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   margin-left: 12px;
+  line-height: 1;
+}
+
+html[lang="en"] .site-brand a {
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  line-height: 1;
 }
 
 .site-nav {
@@ -78,6 +89,14 @@ html[lang="zh-CN"] body {
   text-transform: uppercase;
 }
 
+html[lang="zh-CN"] .site-nav {
+  font-size: 15px;
+}
+
+html[lang="en"] .site-nav {
+  font-size: 14px;
+}
+
 .site-nav a {
   text-decoration: none;
   color: var(--muted);
@@ -87,6 +106,10 @@ html[lang="zh-CN"] body {
 
 .site-nav a:hover {
   color: var(--primary);
+}
+
+.site-nav a.active {
+  color: #7ab4ff;
 }
 
 .lang-switch {
@@ -389,6 +412,11 @@ html[lang="zh-CN"] .archive-hero p {
 
   .lang-switch {
     display: none;
+  }
+
+  .site-nav .lang-switch {
+    display: inline-flex;
+    margin-top: 6px;
   }
 
   .nav-toggle {

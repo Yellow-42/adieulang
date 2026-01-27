@@ -3,10 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>詩歌言葉</title>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <title>影像之書</title>
   <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@400;500;600&family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&family=Noto+Serif:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/uta.css" />
+  <link rel="stylesheet" href="/css/imgbook.css" />
 </head>
 <body>
   <header class="site-header">
@@ -24,7 +23,6 @@
         <a href="/zh/imgbook.html">
           影像之書
         </a>
-
         <a href="/zh/uta.html">
           詩歌言葉
         </a>
@@ -35,9 +33,9 @@
 
             <div class="lang-switch" aria-label="Language selector" role="group">
         <span class="lang-switch-handle">
-          <a href="/zh/uta.html" class="active">中文</a>
+          <a href="/zh/imgbook.html" class="active">中文</a>
           <span class="lang-sep" aria-hidden="true">/</span>
-          <a href="/uta.html">English</a>
+          <a href="/imgbook.html">English</a>
         </span>
       </div>
     </div>
@@ -47,9 +45,9 @@
     </button>
   </header>
 
-  <main class="uta-page">
-    <p class="uta-line">詩歌言葉</p>
-    <section class="uta-cards" aria-label="詩歌言葉列表" data-uta-cards></section>
+  <main class="imgbook-page">
+    <p class="imgbook-line">影像之書</p>
+    <section class="imgbook-cards" aria-label="影像之書" data-imgbook-cards></section>
   </main>
 
   <script>
@@ -62,40 +60,48 @@
       });
     }
 
-    const cards = document.querySelector('[data-uta-cards]');
+    const cards = document.querySelector('[data-imgbook-cards]');
     if (cards) {
-      fetch('/content/uta.json', { cache: 'no-store' })
-        .then(response => response.json())
-        .then(data => {
-          const items = Array.isArray(data.items) ? data.items.slice().reverse() : [];
-          const fragment = document.createDocumentFragment();
-          items.forEach(item => {
-            const card = document.createElement('article');
-            card.className = 'uta-card';
+      const sources = [
+        '/.netlify/functions/media-index',
+        '/content/media.json',
+      ];
 
-            const content = document.createElement('div');
-            content.className = 'uta-card-content';
+      const loadImages = (sourceIndex) => {
+        if (sourceIndex >= sources.length) {
+          return;
+        }
+        fetch(sources[sourceIndex], { cache: 'no-store' })
+          .then(response => response.json())
+          .then(data => {
+            const items = Array.isArray(data.items) ? data.items : [];
+            const fragment = document.createDocumentFragment();
 
-            const title = document.createElement('h3');
-            title.className = 'uta-card-title';
-            title.textContent = item.title || '';
+            items.forEach(item => {
+              const url = item && item.url ? item.url : '';
+              const path = item && item.path ? item.path : url;
+              if (!url || !url.match(/\.(png|jpg|jpeg|gif|webp|svg)$/i)) {
+                return;
+              }
 
-            const body = document.createElement('div');
-            body.className = 'uta-card-body';
-            if (window.marked) {
-              body.innerHTML = marked.parse(item.body || '');
-            } else {
-              body.textContent = item.body || '';
-            }
+              const card = document.createElement('article');
+              card.className = 'imgbook-card';
 
-            content.append(title, body);
-            card.append(content);
-            fragment.append(card);
-          });
+              const img = document.createElement('img');
+              img.src = url;
+              img.alt = path;
+              img.loading = 'lazy';
 
-          cards.replaceChildren(fragment);
-        })
-        .catch(() => {});
+              card.append(img);
+              fragment.append(card);
+            });
+
+            cards.replaceChildren(fragment);
+          })
+          .catch(() => loadImages(sourceIndex + 1));
+      };
+
+      loadImages(0);
     }
   </script>
   <script src="/js/nav-active.js"></script>

@@ -45,9 +45,9 @@ html[lang="zh-CN"] body {
   right: 0;
   z-index: 100;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  padding: 24px 40px;
+  padding: 24px 24px;
   background-color: transparent; /* overlay on hero */
   border-bottom: none;
   transition:
@@ -57,15 +57,27 @@ html[lang="zh-CN"] body {
     color 0.3s ease;
 }
 
+html[lang="en"] .site-header {
+  font-family: "Palanquin", "Helvetica", "Arial", sans-serif;
+}
+
 .site-brand a {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
   color: #ffffff;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+  line-height: 1;
+  margin-left: 12px;
+}
+
+html[lang="en"] .site-brand a {
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1;
 }
 
 .site-title-text {
@@ -82,10 +94,18 @@ html[lang="zh-CN"] body {
   text-transform: uppercase;
 }
 
+html[lang="zh-CN"] .site-nav {
+  font-size: 15px;
+}
+
+html[lang="en"] .site-nav {
+  font-size: 14px;
+}
+
 .site-nav a {
   text-decoration: none;
   color: #ffffff;
-  padding: 2px 0;
+  padding: 4px 0;
   transition: color 0.2s ease;
 }
 
@@ -93,10 +113,13 @@ html[lang="zh-CN"] body {
   color: #d0e4ff;
 }
 
+.site-nav a.active {
+  color: #7ab4ff;
+}
+
 .site-header-right {
   display: flex;
   align-items: center;
-  margin-top: 2px;
   gap: 0;
 }
 
@@ -154,7 +177,7 @@ html[lang="zh-CN"] body {
 .site-header.scrolled {
   background-color: rgba(244, 248, 251, 0.98);
   border-bottom: 1px solid rgba(34, 34, 34, 0.06);
-  padding: 14px 24px;
+  padding: 24px 24px;
 }
 
 .site-header.scrolled .site-brand a {
@@ -163,12 +186,20 @@ html[lang="zh-CN"] body {
   letter-spacing: 0.16em;
 }
 
+html[lang="en"] .site-header.scrolled .site-brand a {
+  letter-spacing: 0.10em;
+}
+
 .site-header.scrolled .site-nav a {
   color: var(--muted);
 }
 
 .site-header.scrolled .site-nav a:hover {
   color: var(--primary);
+}
+
+.site-header.scrolled .site-nav a.active {
+  color: #7ab4ff;
 }
 
 .site-header.scrolled .lang-switch {
@@ -267,7 +298,7 @@ html[lang="zh-CN"] body {
 .hero-title {
   font-size: 40px;
   font-weight: 400;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   margin: 0 0 10px;
 }
@@ -417,6 +448,11 @@ html[lang="zh-CN"] body {
 
   .lang-switch {
     display: none;
+  }
+
+  .site-nav .lang-switch {
+    display: inline-flex;
+    margin-top: 6px;
   }
 
   .nav-toggle {

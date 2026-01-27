@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ImgBook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@400;500;600&family=Noto+Serif:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/imgbook.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-brand">
+      <a href="/#top">
+        Goodbye to Language
+      </a>
+    </div>
+
+    <div class="site-header-right">
+      <nav class="site-nav" aria-label="Main navigation">
+<a href="/html/archive.html">
+          Babel
+        </a>
+        <a href="/imgbook.html">
+          ImgBook
+        </a>
+        <a href="/uta.html">
+          Uta Uta
+        </a>
+        <a href="/html/about.html">
+          Persona
+        </a>
+      </nav>
+
+            <div class="lang-switch" aria-label="Language selector" role="group">
+        <span class="lang-switch-handle">
+          <a href="/zh/imgbook.html">中文</a>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <a href="/imgbook.html" class="active">English</a>
+        </span>
+      </div>
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      Menu
+    </button>
+  </header>
+
+  <main class="imgbook-page">
+    <p class="imgbook-line">ImgBook</p>
+    <section class="imgbook-cards" aria-label="ImgBook" data-imgbook-cards></section>
+  </main>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+
+    const cards = document.querySelector('[data-imgbook-cards]');
+    if (cards) {
+      const sources = [
+        '/.netlify/functions/media-index',
+        '/content/media.json',
+      ];
+
+      const loadImages = (sourceIndex) => {
+        if (sourceIndex >= sources.length) {
+          return;
+        }
+        fetch(sources[sourceIndex], { cache: 'no-store' })
+          .then(response => response.json())
+          .then(data => {
+            const items = Array.isArray(data.items) ? data.items : [];
+            const fragment = document.createDocumentFragment();
+
+            items.forEach(item => {
+              const url = item && item.url ? item.url : '';
+              const path = item && item.path ? item.path : url;
+              if (!url || !url.match(/\.(png|jpg|jpeg|gif|webp|svg)$/i)) {
+                return;
+              }
+
+              const card = document.createElement('article');
+              card.className = 'imgbook-card';
+
+              const img = document.createElement('img');
+              img.src = url;
+              img.alt = path;
+              img.loading = 'lazy';
+
+              card.append(img);
+              fragment.append(card);
+            });
+
+            cards.replaceChildren(fragment);
+          })
+          .catch(() => loadImages(sourceIndex + 1));
+      };
+
+      loadImages(0);
+    }
+  </script>
+  <script src="/js/nav-active.js"></script>
+</body>
+</html>

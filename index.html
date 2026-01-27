@@ -6,10 +6,11 @@
   <title>Goodbye to Language</title>
 
   <!-- Fonts (optional) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&family=Noto+Serif:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@400;500;600&family=Inter:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&family=Noto+Serif:wght@300;400;500;700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <!-- Main stylesheet (already contains .hero-full / .hero-video rules) -->
   <link rel="stylesheet" href="./css/index.css" />
+
 </head>
 
 <body>
@@ -26,14 +27,14 @@
 
     <div class="site-header-right">
       <nav class="site-nav" aria-label="Main navigation">
-         <a href="/">
-           Home
+<a href="/html/archive.html">
+           Babel
            
          </a>
-         <a href="/html/archive.html">
-           Archive
-           
-         </a>
+        <a href="/imgbook.html">
+          ImgBook
+        </a>
+
          <a href="/uta.html">
            Uta Uta
            
@@ -44,13 +45,13 @@
          </a>
        </nav>
 
-        <div class="lang-switch" aria-label="Language selector" role="group">
-            <span class="lang-switch-handle">
-            <a href="/zh/index.html">中文</a>
-            <span class="lang-sep" aria-hidden="true">/</span>
-            <a href="/" class="active">English</a>
-            </span>
-        </div>
+              <div class="lang-switch" aria-label="Language selector" role="group">
+        <span class="lang-switch-handle">
+          <a href="/zh/index.html">中文</a>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <a href="/" class="active">English</a>
+        </span>
+      </div>
     </div>
 
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -127,6 +128,8 @@
       heroVideo.addEventListener('canplay', tryPlayHeroVideo, { once: true });
       window.addEventListener('load', tryPlayHeroVideo);
     }
+
   </script>
+  <script src="/js/nav-active.js"></script>
 </body>
 </html>

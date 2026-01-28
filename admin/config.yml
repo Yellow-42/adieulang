@@ -2,11 +2,11 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
-
 media_library:
-  name: taggedMedia
+  name: cloudinary
+  config:
+    cloud_name: dnycjmkzv
+    upload_preset: adieulang
 
 collections:
   - name: "site"
@@ -31,23 +31,3 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Body", name: "body", widget: "markdown" }
               - { label: "Updated At", name: "updated_at", widget: "datetime", required: false, default: "{{now}}", format: "YYYY-MM-DD HH:mm" }
-  - name: "media_tags"
-    label: "Media Tags (System)"
-    files:
-      - label: "Media Tags"
-        name: "media_tags"
-        file: "content/media-tags.json"
-        fields:
-          - label: "Tags"
-            name: "tags"
-            widget: "list"
-            default: []
-          - label: "Items"
-            name: "items"
-            widget: "list"
-            fields:
-              - { label: "Path", name: "path", widget: "string" }
-              - label: "Tags"
-                name: "tags"
-                widget: "list"
-                default: []
